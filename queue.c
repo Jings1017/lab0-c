@@ -103,7 +103,6 @@ bool q_insert_tail(queue_t *q, char *s)
     else
         q->tail->next = newh;
     q->tail = newh;
-
     q->size++;
 
     return true;
@@ -249,9 +248,9 @@ void q_sort(queue_t *q)
     if (!q || !q->head || q->size <= 1)
         return;
     q->head = mergeSort(q->head);
-    list_ele_t *tail = q->head;
-    while (tail->next) {
-        tail = tail->next;
+    list_ele_t *tmp = q->head;
+    while (tmp->next) {
+        tmp = tmp->next;
     }
-    q->tail = tail;
+    q->tail = tmp;
 }
